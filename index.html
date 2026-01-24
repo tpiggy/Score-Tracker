@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Player Score Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Four Player Score Tracker</h1>
+
+        <!-- Visual Leaderboard -->
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <div id="leaderboard-list" class="leaderboard-list">
+                <!-- Leaderboard will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="players-grid">
+            <!-- Player 1 -->
+            <div class="player-card" data-player="1">
+                <div class="player-header">
+                    <input type="text" class="player-name" id="player1-name" placeholder="Player 1" maxlength="20">
+                    <span class="rank-badge" id="rank1"></span>
+                </div>
+                <div class="score-display" id="score1">0</div>
+                <div class="controls">
+                    <button class="btn btn-subtract" onclick="updateScore(1, -1)">-1</button>
+                    <button class="btn btn-subtract-five" onclick="updateScore(1, -5)">-5</button>
+                    <button class="btn btn-add" onclick="updateScore(1, 1)">+1</button>
+                    <button class="btn btn-add-five" onclick="updateScore(1, 5)">+5</button>
+                </div>
+                <button class="btn btn-reset" onclick="resetPlayer(1)">Reset</button>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="player-card" data-player="2">
+                <div class="player-header">
+                    <input type="text" class="player-name" id="player2-name" placeholder="Player 2" maxlength="20">
+                    <span class="rank-badge" id="rank2"></span>
+                </div>
+                <div class="score-display" id="score2">0</div>
+                <div class="controls">
+                    <button class="btn btn-subtract" onclick="updateScore(2, -1)">-1</button>
+                    <button class="btn btn-subtract-five" onclick="updateScore(2, -5)">-5</button>
+                    <button class="btn btn-add" onclick="updateScore(2, 1)">+1</button>
+                    <button class="btn btn-add-five" onclick="updateScore(2, 5)">+5</button>
+                </div>
+                <button class="btn btn-reset" onclick="resetPlayer(2)">Reset</button>
+            </div>
+
+            <!-- Player 3 -->
+            <div class="player-card" data-player="3">
+                <div class="player-header">
+                    <input type="text" class="player-name" id="player3-name" placeholder="Player 3" maxlength="20">
+                    <span class="rank-badge" id="rank3"></span>
+                </div>
+                <div class="score-display" id="score3">0</div>
+                <div class="controls">
+                    <button class="btn btn-subtract" onclick="updateScore(3, -1)">-1</button>
+                    <button class="btn btn-subtract-five" onclick="updateScore(3, -5)">-5</button>
+                    <button class="btn btn-add" onclick="updateScore(3, 1)">+1</button>
+                    <button class="btn btn-add-five" onclick="updateScore(3, 5)">+5</button>
+                </div>
+                <button class="btn btn-reset" onclick="resetPlayer(3)">Reset</button>
+            </div>
+
+            <!-- Player 4 -->
+            <div class="player-card" data-player="4">
+                <div class="player-header">
+                    <input type="text" class="player-name" id="player4-name" placeholder="Player 4" maxlength="20">
+                    <span class="rank-badge" id="rank4"></span>
+                </div>
+                <div class="score-display" id="score4">0</div>
+                <div class="controls">
+                    <button class="btn btn-subtract" onclick="updateScore(4, -1)">-1</button>
+                    <button class="btn btn-subtract-five" onclick="updateScore(4, -5)">-5</button>
+                    <button class="btn btn-add" onclick="updateScore(4, 1)">+1</button>
+                    <button class="btn btn-add-five" onclick="updateScore(4, 5)">+5</button>
+                </div>
+                <button class="btn btn-reset" onclick="resetPlayer(4)">Reset</button>
+            </div>
+        </div>
+
+        <!-- Global Controls -->
+        <div class="global-controls">
+            <button class="btn btn-reset-all" onclick="resetAll()">Reset All Players</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
