@@ -10,6 +10,8 @@ A beautiful, interactive score tracking application for four players with a dyna
   - 🥈 Silver medal for 2nd place
   - 🥉 Bronze medal for 3rd place
   - Rank number for 4th place
+  - Animated bar chart showing score leads
+  - Color-coded bars matching rank gradients
 - **Customizable Player Names**: Personalize each player's name
 - **Flexible Score Adjustments**:
   - Add/subtract 1 point
@@ -47,13 +49,16 @@ The leaderboard automatically updates in real-time and shows:
 - Current ranking with medal/position indicator
 - Player name
 - Status message (leading, points behind leader, etc.)
+- Visual bar chart showing relative score
 - Current score
 
 Rankings are color-coded:
-- **Gold gradient**: 1st place
-- **Silver gradient**: 2nd place
-- **Bronze gradient**: 3rd place
-- **Gray gradient**: 4th place
+- **Gold gradient**: 1st place with gold bar
+- **Silver gradient**: 2nd place with silver bar
+- **Bronze gradient**: 3rd place with bronze bar
+- **Gray gradient**: 4th place with gray bar
+
+The bar chart scales relative to the leader's score (always 100%), making it easy to visualize score differences at a glance.
 
 ### Keyboard Shortcuts
 
