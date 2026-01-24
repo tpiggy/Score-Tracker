@@ -117,6 +117,9 @@ function updateLeaderboard() {
     const leaderboardList = document.getElementById('leaderboard-list');
     leaderboardList.innerHTML = '';
 
+    // Find max score for bar chart scaling
+    const maxScore = Math.max(...playerData.map(p => p.score), 1); // Minimum 1 to avoid division by zero
+
     playerData.forEach((player, index) => {
         const item = document.createElement('div');
         item.className = `leaderboard-item rank-${player.rank}`;
@@ -146,11 +149,22 @@ function updateLeaderboard() {
             }
         }
 
+        // Calculate bar width percentage
+        const barPercentage = maxScore > 0 ? (player.score / maxScore) * 100 : 0;
+        const barWidth = Math.max(barPercentage, 0);
+
         item.innerHTML = `
             <div class="rank-number">${rankEmoji}</div>
             <div class="player-info">
                 <div class="name">${player.name}</div>
                 <div class="status">${statusText}</div>
+            </div>
+            <div class="bar-chart-container">
+                <div class="bar-chart">
+                    <div class="bar-fill" style="width: ${barWidth}%">
+                        ${barWidth >= 25 ? `<span class="bar-percentage">${Math.round(barPercentage)}%</span>` : ''}
+                    </div>
+                </div>
             </div>
             <div class="leaderboard-score">${player.score}</div>
         `;

@@ -124,6 +124,68 @@ h1 {
     text-align: right;
 }
 
+/* Bar Chart Styles */
+.bar-chart-container {
+    flex: 2;
+    padding: 0 20px;
+}
+
+.bar-chart {
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.leaderboard-item.rank-1 .bar-fill {
+    background: linear-gradient(90deg, #FFD700 0%, #FF8C00 100%);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+.leaderboard-item.rank-2 .bar-fill {
+    background: linear-gradient(90deg, #C0C0C0 0%, #909090 100%);
+    box-shadow: 0 2px 8px rgba(192, 192, 192, 0.5);
+}
+
+.leaderboard-item.rank-3 .bar-fill {
+    background: linear-gradient(90deg, #CD7F32 0%, #A0651E 100%);
+    box-shadow: 0 2px 8px rgba(205, 127, 50, 0.5);
+}
+
+.leaderboard-item.rank-4 .bar-fill {
+    background: linear-gradient(90deg, #b0b0b0 0%, #808080 100%);
+    box-shadow: 0 2px 6px rgba(176, 176, 176, 0.4);
+}
+
+.bar-percentage {
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@keyframes barGrow {
+    from {
+        width: 0;
+    }
+}
+
 /* Player Cards Grid */
 .players-grid {
     display: grid;
@@ -267,7 +329,8 @@ h1 {
     }
 
     .leaderboard-score {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        min-width: 60px;
     }
 
     .player-info .name {
@@ -277,6 +340,30 @@ h1 {
     .rank-number {
         font-size: 1.5rem;
         width: 50px;
+    }
+
+    .bar-chart {
+        height: 30px;
+    }
+
+    .bar-fill {
+        font-size: 0.9rem;
+        padding-right: 10px;
+    }
+
+    .bar-percentage {
+        font-size: 0.8rem;
+    }
+
+    .leaderboard-item {
+        flex-wrap: wrap;
+    }
+
+    .bar-chart-container {
+        flex: 100%;
+        order: 3;
+        margin-top: 10px;
+        padding: 0;
     }
 }
 
