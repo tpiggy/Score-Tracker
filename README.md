@@ -1,6 +1,6 @@
 # Four Player Score Tracker
 
-A beautiful, interactive score tracking application for four players with a dynamic visual leaderboard.
+A beautiful, interactive score tracking application for four players with a dynamic visual leaderboard. Available as a native macOS application or web app.
 
 ## Features
 
@@ -21,6 +21,38 @@ A beautiful, interactive score tracking application for four players with a dyna
 - **Persistent Storage**: Scores and names are saved automatically using localStorage
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **Smooth Animations**: Visual feedback for score updates and leaderboard changes
+- **Native macOS App**: Run as a standalone application on your Mac mini or MacBook
+
+## Installation
+
+### Option 1: macOS Native App (Recommended for Mac mini)
+
+1. **Install Node.js** (if not already installed):
+   - Download from [nodejs.org](https://nodejs.org/)
+   - Or install via Homebrew: `brew install node`
+
+2. **Clone or download this repository**
+
+3. **Install dependencies**:
+   ```bash
+   cd Score-Tracker
+   npm install
+   ```
+
+4. **Run the app**:
+   ```bash
+   npm start
+   ```
+
+5. **Build a standalone app** (optional):
+   ```bash
+   npm run build:mac
+   ```
+   This creates a `.dmg` installer in the `dist/` folder that you can install on your Mac mini.
+
+### Option 2: Web Browser
+
+Simply open `index.html` in any web browser. No installation required!
 
 ## How to Use
 
@@ -68,9 +100,15 @@ The bar chart scales relative to the leader's score (always 100%), making it eas
 
 ### Files
 
+**Core Application:**
 - `index.html`: Main HTML structure
 - `styles.css`: Styling and visual design
 - `script.js`: Score tracking logic and interactivity
+
+**macOS App (Electron):**
+- `main.js`: Electron app configuration and window management
+- `package.json`: Node.js dependencies and build configuration
+- `.gitignore`: Git ignore rules for node_modules and build files
 
 ### Data Persistence
 
@@ -80,13 +118,19 @@ The application uses browser localStorage to automatically save:
 
 Your data persists between sessions until you clear your browser data.
 
-### Browser Compatibility
+### Platform Compatibility
 
-Works with all modern browsers:
+**macOS App:**
+- macOS 10.13 (High Sierra) or later
+- Runs natively on Mac mini, MacBook, iMac, etc.
+- Apple Silicon (M1/M2/M3) and Intel Macs supported
+
+**Web Browser:**
 - Chrome/Edge (recommended)
 - Firefox
 - Safari
 - Opera
+- Any modern browser on Windows, Linux, or macOS
 
 ## Use Cases
 

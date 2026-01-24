@@ -1,0 +1,46 @@
+{
+  "name": "score-tracker",
+  "version": "1.0.0",
+  "description": "Four Player Score Tracker - A beautiful score tracking app for Mac",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "dist": "electron-builder --mac --publish never"
+  },
+  "keywords": [
+    "score",
+    "tracker",
+    "game",
+    "leaderboard"
+  ],
+  "author": "Score Tracker Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.scoretracker.app",
+    "productName": "Score Tracker",
+    "mac": {
+      "category": "public.app-category.games",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "script.js",
+      "main.js",
+      "assets/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
