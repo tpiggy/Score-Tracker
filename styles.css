@@ -239,14 +239,67 @@ h1 {
 }
 
 .score-display {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    color: #667eea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin: 20px 0;
     padding: 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 10px;
+}
+
+.score-previous {
+    font-size: 1.5rem;
+    color: #999;
+    min-width: 40px;
+    text-align: right;
+    text-decoration: line-through;
+}
+
+.score-arrow {
+    font-size: 1.5rem;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.score-current {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.score-change {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.change-positive {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.change-negative {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    color: white;
+}
+
+.change-neutral {
+    background: #e0e0e0;
+    color: #666;
+}
+
+.arrow-up {
+    color: #38ef7d;
+}
+
+.arrow-down {
+    color: #ff6a00;
 }
 
 .controls {
@@ -305,6 +358,11 @@ h1 {
 /* Global Controls */
 .global-controls {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .btn-reset-all {
@@ -312,6 +370,124 @@ h1 {
     color: white;
     padding: 15px 40px;
     font-size: 1.2rem;
+}
+
+.btn-undo {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-new-round {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-clear-history {
+    background: linear-gradient(135deg, #757F9A 0%, #D7DDE8 100%);
+    color: #333;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+/* Round History Styles */
+.round-history {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.round-history h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.round-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.round-history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.round-history-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.round-history-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.no-history {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-style: italic;
+}
+
+.round-entry {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    border-radius: 12px;
+    padding: 15px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.round-entry:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.round-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.round-number {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.round-time {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.round-scores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.round-score-item {
+    background: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.round-score-item strong {
+    color: #667eea;
 }
 
 /* Responsive Design */
@@ -325,7 +501,26 @@ h1 {
     }
 
     .score-display {
-        font-size: 3rem;
+        font-size: 1rem;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+
+    .score-previous {
+        font-size: 1.2rem;
+    }
+
+    .score-arrow {
+        font-size: 1.2rem;
+    }
+
+    .score-current {
+        font-size: 2.5rem;
+    }
+
+    .score-change {
+        font-size: 0.9rem;
+        padding: 3px 12px;
     }
 
     .leaderboard-score {
@@ -373,13 +568,156 @@ h1 {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.15);
     }
     100% {
         transform: scale(1);
     }
 }
 
+@keyframes scoreUp {
+    0% {
+        transform: scale(1);
+        color: #667eea;
+    }
+    50% {
+        transform: scale(1.2);
+        color: #38ef7d;
+    }
+    100% {
+        transform: scale(1);
+        color: #667eea;
+    }
+}
+
+@keyframes scoreDown {
+    0% {
+        transform: scale(1);
+        color: #667eea;
+    }
+    50% {
+        transform: scale(1.2);
+        color: #ff6a00;
+    }
+    100% {
+        transform: scale(1);
+        color: #667eea;
+    }
+}
+
+@keyframes cardPulse {
+    0% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(102, 126, 234, 0.6);
+    }
+    100% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
 .score-update {
     animation: scoreUpdate 0.3s ease;
+}
+
+.score-up {
+    animation: scoreUp 0.4s ease;
+}
+
+.score-down {
+    animation: scoreDown 0.4s ease;
+}
+
+.card-pulse {
+    animation: cardPulse 0.3s ease;
+}
+
+/* Current player highlight for keyboard navigation */
+.player-card.current-player {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Undo notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 1000;
+    font-weight: 500;
+}
+
+/* Button press effect */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Disabled state for debounce */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Touch feedback */
+.player-card:active {
+    transform: scale(0.98);
+}
+
+/* Responsive styles for round history */
+@media (max-width: 768px) {
+    .round-history {
+        padding: 20px 15px;
+    }
+
+    .round-history h2 {
+        font-size: 1.5rem;
+    }
+
+    .round-history-list {
+        max-height: 250px;
+    }
+
+    .round-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .round-time {
+        font-size: 0.8rem;
+    }
+
+    .round-scores {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .round-score-item {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .btn-new-round,
+    .btn-clear-history {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+
+    .global-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-new-round,
+    .btn-clear-history {
+        width: 100%;
+        max-width: 300px;
+    }
 }
