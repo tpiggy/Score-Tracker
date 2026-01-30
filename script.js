@@ -65,19 +65,11 @@ function updateScore(player, points) {
     }
 
     // Update score
-    const previousScore = scores[player];
     scores[player] += points;
 
-    // Update the displays
+    // Update the display
     const scoreElement = document.getElementById(`score${player}`);
-    const changeElement = document.getElementById(`score-change${player}`);
-
     scoreElement.textContent = scores[player];
-
-    // Update change indicator
-    const changeText = points > 0 ? `+${points}` : `${points}`;
-    changeElement.textContent = changeText;
-    changeElement.className = `score-change ${points > 0 ? 'change-positive' : points < 0 ? 'change-negative' : 'change-neutral'}`;
 
     // Enhanced animation with direction-aware feedback
     scoreElement.classList.remove('score-up', 'score-down', 'score-update');
@@ -387,8 +379,6 @@ function resetPlayer(player) {
     if (confirm(`Reset ${getPlayerName(player)}'s score?`)) {
         scores[player] = 0;
         document.getElementById(`score${player}`).textContent = 0;
-        document.getElementById(`score-change${player}`).textContent = '+0';
-        document.getElementById(`score-change${player}`).className = 'score-change change-neutral';
         updateLeaderboard();
         saveToLocalStorage();
     }
@@ -400,8 +390,6 @@ function resetAll() {
         for (let i = 1; i <= 4; i++) {
             scores[i] = 0;
             document.getElementById(`score${i}`).textContent = 0;
-            document.getElementById(`score-change${i}`).textContent = '+0';
-            document.getElementById(`score-change${i}`).className = 'score-change change-neutral';
         }
         updateLeaderboard();
         saveToLocalStorage();
@@ -541,7 +529,6 @@ function loadFromLocalStorage() {
                 scores = data.scores;
                 for (let i = 1; i <= 4; i++) {
                     document.getElementById(`score${i}`).textContent = scores[i];
-                    document.getElementById(`score-change${i}`).textContent = '+0';
                 }
             }
 

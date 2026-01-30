@@ -254,31 +254,6 @@ h1 {
     color: #667eea;
 }
 
-.score-change {
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 5px 15px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-.change-positive {
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-    color: white;
-}
-
-.change-negative {
-    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
-    color: white;
-}
-
-.change-neutral {
-    background: #e0e0e0;
-    color: #666;
-}
-
 .controls {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -484,11 +459,6 @@ h1 {
 
     .score-current {
         font-size: 3rem;
-    }
-
-    .score-change {
-        font-size: 0.9rem;
-        padding: 3px 12px;
     }
 
     .leaderboard-score {
