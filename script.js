@@ -70,12 +70,8 @@ function updateScore(player, points) {
 
     // Update the displays
     const scoreElement = document.getElementById(`score${player}`);
-    const prevElement = document.getElementById(`score-prev${player}`);
-    const arrowElement = document.getElementById(`score-arrow${player}`);
     const changeElement = document.getElementById(`score-change${player}`);
 
-    // Show previous score
-    prevElement.textContent = previousScore;
     scoreElement.textContent = scores[player];
 
     // Update change indicator
@@ -83,13 +79,8 @@ function updateScore(player, points) {
     changeElement.textContent = changeText;
     changeElement.className = `score-change ${points > 0 ? 'change-positive' : points < 0 ? 'change-negative' : 'change-neutral'}`;
 
-    // Update arrow based on change
-    arrowElement.textContent = points > 0 ? '↑' : points < 0 ? '↓' : '→';
-    arrowElement.className = `score-arrow ${points > 0 ? 'arrow-up' : points < 0 ? 'arrow-down' : ''}`;
-
     // Enhanced animation with direction-aware feedback
     scoreElement.classList.remove('score-up', 'score-down', 'score-update');
-    prevElement.classList.remove('score-up', 'score-down');
     void scoreElement.offsetWidth; // Trigger reflow
     scoreElement.classList.add(points > 0 ? 'score-up' : 'score-down');
 
@@ -396,9 +387,7 @@ function resetPlayer(player) {
     if (confirm(`Reset ${getPlayerName(player)}'s score?`)) {
         scores[player] = 0;
         document.getElementById(`score${player}`).textContent = 0;
-        document.getElementById(`score-prev${player}`).textContent = 0;
         document.getElementById(`score-change${player}`).textContent = '+0';
-        document.getElementById(`score-arrow${player}`).textContent = '→';
         document.getElementById(`score-change${player}`).className = 'score-change change-neutral';
         updateLeaderboard();
         saveToLocalStorage();
@@ -411,9 +400,7 @@ function resetAll() {
         for (let i = 1; i <= 4; i++) {
             scores[i] = 0;
             document.getElementById(`score${i}`).textContent = 0;
-            document.getElementById(`score-prev${i}`).textContent = 0;
             document.getElementById(`score-change${i}`).textContent = '+0';
-            document.getElementById(`score-arrow${i}`).textContent = '→';
             document.getElementById(`score-change${i}`).className = 'score-change change-neutral';
         }
         updateLeaderboard();
@@ -554,9 +541,7 @@ function loadFromLocalStorage() {
                 scores = data.scores;
                 for (let i = 1; i <= 4; i++) {
                     document.getElementById(`score${i}`).textContent = scores[i];
-                    document.getElementById(`score-prev${i}`).textContent = 0;
                     document.getElementById(`score-change${i}`).textContent = '+0';
-                    document.getElementById(`score-arrow${i}`).textContent = '→';
                 }
             }
 

@@ -242,29 +242,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     margin: 20px 0;
     padding: 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 10px;
 }
 
-.score-previous {
-    font-size: 1.5rem;
-    color: #999;
-    min-width: 40px;
-    text-align: right;
-    text-decoration: line-through;
-}
-
-.score-arrow {
-    font-size: 1.5rem;
-    color: #667eea;
-    font-weight: bold;
-}
-
 .score-current {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
     color: #667eea;
 }
@@ -292,14 +277,6 @@ h1 {
 .change-neutral {
     background: #e0e0e0;
     color: #666;
-}
-
-.arrow-up {
-    color: #38ef7d;
-}
-
-.arrow-down {
-    color: #ff6a00;
 }
 
 .controls {
@@ -503,19 +480,10 @@ h1 {
     .score-display {
         font-size: 1rem;
         padding: 15px;
-        flex-wrap: wrap;
-    }
-
-    .score-previous {
-        font-size: 1.2rem;
-    }
-
-    .score-arrow {
-        font-size: 1.2rem;
     }
 
     .score-current {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .score-change {
